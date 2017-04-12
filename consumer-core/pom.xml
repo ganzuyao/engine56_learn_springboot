@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.engine56</groupId>
+  <artifactId>consumer-core</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>consumer-core</name>
+  
+   <parent>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-parent</artifactId>
+  		<version>1.5.1.RELEASE</version>
+  </parent>
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<shiro.version>1.2.4</shiro.version>
+    	<swagger.version>2.2.2</swagger.version>
+		<dubbo.verison>2.5.3</dubbo.verison>
+		<zookeeper.version>3.4.6</zookeeper.version>
+		<zkclient.version>0.1</zkclient.version>
+		<junit.version>4.12</junit.version>
+  </properties>
+
+  <dependencies>
+	  	<!-- Spring Boot Web 依赖 -->
+	  	<dependency>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+	    <!--Apache Shiro -->
+	    <dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-spring</artifactId>
+		    <version>${shiro.version}</version>
+	  	</dependency>
+	  	<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-ehcache</artifactId>
+		    <version>${shiro.version}</version>
+	  	</dependency>
+	 	<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-cas</artifactId>
+		    <version>${shiro.version}</version>
+	 	</dependency>
+	    <!-- Swagger2 -->
+	    <dependency>  
+			<groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>${swagger.version}</version>
+		</dependency>  
+		<dependency>  
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>${swagger.version}</version>
+		</dependency>
+	    <!-- dubbo 依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbo.verison}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--zookeeper 依赖  -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${zookeeper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>${zkclient.version}</version>
+        </dependency>
+        <!-- glue 接口包 依赖 -->
+	    <dependency>
+	        <groupId>com.engine56</groupId>
+	        <artifactId>glue</artifactId>
+	        <version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+        <!-- junit 依赖 -->
+	    <dependency>
+	        <groupId>junit</groupId>
+	        <artifactId>junit</artifactId>
+	        <version>${junit.version}</version>
+	        <scope>test</scope>
+	    </dependency>
+  </dependencies>
+  <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+  		</plugins>
+  </build>
+  <modules>
+  	<module>consumer</module>
+  </modules>
+</project>
